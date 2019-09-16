@@ -44,15 +44,3 @@ class BinarySearchTree:
             self.left.for_each(cb)
         if self.right != None:
             self.right.for_each(cb)
-
-
-bst = BinarySearchTree(5)
-bst.insert(2)
-bst.insert(3)
-bst.insert(7)
-bst.insert(6)
-print(bst.left.right.value)
-print(bst.right.left.value)
-print(bst.contains(7))
-print(bst.contains(8))
-print(bst.get_max())
