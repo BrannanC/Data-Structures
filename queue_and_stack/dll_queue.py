@@ -13,7 +13,7 @@ class Queue:
 
     def dequeue(self):
         if self.size == 0:
-            return
+            return None
         else:
             last = self.storage.remove_from_head()
             self.size -= 1
@@ -21,12 +21,3 @@ class Queue:
 
     def len(self):
         return self.size
-
-
-q = Queue()
-q.enqueue(2)
-q.enqueue(200)
-q.dequeue()
-q.dequeue()
-q.dequeue()
-print(q.len())
