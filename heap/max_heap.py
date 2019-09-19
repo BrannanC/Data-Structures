@@ -51,26 +51,3 @@ class Heap:
             self.storage[index] = self.storage[i]
             self.storage[i] = temp
             self._sift_down(i)
-
-
-heap = Heap()
-heap.insert(6)
-heap.insert(8)
-heap.insert(10)
-heap.insert(9)
-heap.insert(1)
-heap.insert(9)
-heap.insert(9)
-heap.insert(5)
-print('[10, 9, 9, 6, 1, 8, 9, 5]')
-print(heap.storage)
-
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())
-print(heap.delete())

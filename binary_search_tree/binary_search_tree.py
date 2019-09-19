@@ -106,15 +106,3 @@ class BinarySearchTree:
         if node.right:
             node.post_order_dft(node.right)
         print(node.value)
-
-
-# bst = BinarySearchTree(1)
-# bst.insert(8)
-# bst.insert(5)
-# bst.insert(7)
-# bst.insert(6)
-# bst.insert(3)
-# bst.insert(4)
-# bst.insert(2)
-
-# bst.dft_print(bst)

@@ -21,16 +21,3 @@ class Stack:
 
     def len(self):
         return self.size
-
-
-stack = Stack()
-print('Should be 0')
-print(stack.len())
-stack.push(2)
-print('Should be 1')
-print(stack.len())
-stack.push(4)
-print('should be 2')
-print(stack.len())
-print('should be 4')
-print(stack.pop())
