@@ -28,7 +28,6 @@ class LRUCache:
             return None
         else:
             value = self.cache[key]
-            # self.storage.delete(value[1])
             self.storage.move_to_front(value[1])
             return value[0]
 
@@ -46,7 +45,6 @@ class LRUCache:
     def set(self, key, value):
         if key in self.cache:
             cache_value = self.cache[key]
-            # self.storage.delete(cache_value[1])
             self.storage.move_to_front(cache_value[1])
             self.storage.head.value = (key, value)
             self.cache[key] = [value, self.storage.head]
