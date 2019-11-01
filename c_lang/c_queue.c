@@ -12,7 +12,7 @@ typedef struct Queue
 
 Queue *createQueue(unsigned int capacity)
 {
-    Queue *queue = malloc(sizeof(Queue));
+    Queue *queue = malloc(sizeof(struct Queue));
     queue->capacity = capacity;
     queue->front = 0;
     queue->rear = 0;
@@ -49,13 +49,22 @@ int dequeue(Queue *queue)
     {
         return -1;
     }
-    queue->size--;
-    return queue->data[queue->front++];
+    else
+    {
+        int item = queue->data[queue->front];
+        queue->front = (queue->front + 1) % queue->capacity;
+        queue->size--;
+        if (isEmpty(queue))
+        {
+            queue->front = queue->rear = 0;
+        }
+        return item;
+    }
 }
 
 int main()
 {
-    Queue *queue = createQueue(4);
+    Queue *queue = createQueue(2);
 
     printf("queue isFull: %d\n", isFull(queue));
     printf("queue isEmpty: %d\n", isEmpty(queue));
@@ -71,4 +80,24 @@ int main()
     printf("%d dequeued\n", dequeue(queue));
     printf("%d dequeued\n", dequeue(queue));
     printf("%d dequeued\n", dequeue(queue));
+    printf("%d dequeued\n", dequeue(queue));
+    printf("isEmpty: %d\n", isEmpty(queue));
+
+    int push_count = 100000;
+    for (int i = 0; i < push_count; i++)
+    {
+        enqueue(queue, i);
+    }
+
+    for (int i = 0; i < push_count; i++)
+    {
+        int v = dequeue(queue);
+
+        if (v != i)
+        {
+            printf("Expected %d but got %d\n", v, i);
+        }
+    }
+
+    return 0;
 }
